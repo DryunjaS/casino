@@ -1,0 +1,22 @@
+.wrap{
+    width: 100px;
+    display: flex;
+    flex-direction: column;
+    .btn {
+        padding: 10px 20px;
+        border-radius: 10px;
+        background: linear-gradient(to right, red, #a30202);
+        color: #fff; 
+        transition: all 0.2s ease-in;
+        &:hover {
+            cursor: pointer;
+            background: linear-gradient(to right, #a30202, #730101);
+            transform: scale(1.03);
+        }
+    }
+    &:hover {
+        border-radius: 5px;
+        background: linear-gradient(to right, #a30202, #730101);
+        transform: scale(1.01);
+    }
+}

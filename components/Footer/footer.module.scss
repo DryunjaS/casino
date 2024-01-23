@@ -1,0 +1,27 @@
+.footer{
+    height: 100px;
+    margin: 0 auto;
+    width: 100%;
+    background-color:rgb(12,20,29);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.nav{
+    width: 50%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a{
+        text-decoration: none;
+        color: #fff;
+        font-size: 20px;
+        margin: 10px;
+        &:hover{
+            text-decoration: underline;
+        }
+    }
+}
