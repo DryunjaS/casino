@@ -21,11 +21,11 @@
     .arrow {
       width: 0;
       height: 0;
-      border: 80px solid transparent;
-      border-top: 110px solid tomato;
+      border: 40px solid transparent;
+      border-top: 70px solid tomato;
       position: fixed;
       left: 50%;
-      transform: translate(-50%, -100px);
+      transform: translate(-50%, -70px);
       z-index: 20;
       border-radius: 0.35em;
     }
@@ -35,3 +35,48 @@
   .spin {
     cursor: crosshair;
   }
+.ifGameUser{
+  display: flex;
+}
+.btn{
+  font-size: 20px;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: tomato;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover{
+    scale: 1.05;
+  }
+}
+.yesBtn{
+  font-size: 20px;
+  color: white;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: max-content;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: green;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover{
+    scale: 1.05;
+  }
+}
+.noBtn{
+  font-size: 20px;
+  color: white;
+  margin-top: 10px;
+  width: max-content;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: red;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  &:hover{
+    scale: 1.05;
+  }
+}
