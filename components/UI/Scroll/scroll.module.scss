@@ -1,20 +1,28 @@
 .wrap {
   margin-top: 10px;
-  width: 100%;
-  overflow-x: auto;
+  width: 500px;
+  position: absolute;
+  top: 100px;
+  left: 10px;
+  display: flex;
 
   .scrollport{
+    width: 180px;
     display: flex;
-    width: max-content;
-    margin: 0 auto;
-    
+    flex-wrap: wrap;
+    justify-content: space-between;
   }
-  .block{
+  .scrollportDop{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+  }
+  .block,.dozen{
     box-sizing: border-box;
     width: 45px;
     height: 45px;
-    font-size: 32px;
-    margin: 5px;
+    font-size: 23px;
+    margin: 4px;
     padding: 10px;
     background-color: tomato;
     border-radius: 7px;
@@ -26,7 +34,27 @@
       scale: 1.1;
       cursor: pointer;
       background-color: red;
+    }  
+  }
+  .block{
+    &:first-child{
+      width: 200px;
     }
+  }
+  .dozen{
+    width: 150px;
+    margin-right: 10px;    
+  }
+  .rhombRed,.rhombBlack {
+    width: 25px;
+    height: 25px;
+    background-color: #ff0000;
+    transform: rotate(45deg);
+    margin: 10px;
+    border: 1px solid black;
+  }
+  .rhombBlack{
+    background-color: #000;
   }
 }
 

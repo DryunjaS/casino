@@ -1,6 +1,6 @@
 "use client"
 import Image from 'next/image';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import styles from '@/components/Roulette/roulette.module.scss';
 import Srcoll from '../UI/Scroll/Srcoll';
 
@@ -8,12 +8,12 @@ const Roulette = () => {
   const wheelImgRef = useRef<HTMLImageElement | null>(null);
   const [currentLength, setCurrentLength] = useState<number>(((1 / 37) * 360) / 2);
   const [currentBlur, setcurrentBlur] = useState<number>(0);
-  const [currentCell, setCurrentCell] = useState<number | null>(null) // ответ на рулетку
+  const [currentCell, setCurrentCell] = useState<number>(0) // ответ на рулетку
   const [handleBtn,setHandleBtn] = useState<boolean>(false) //Выбор ячеуки - отбражает ячейки
   const [isBtn,setIsBtn] = useState<boolean>(true) //Выбор ячеуки - кнопка изначально отображается
   const [isYes, setIsYes] = useState<boolean>(false)
   const [isNo, setIsNo] = useState<boolean>(false)
-  const [userNum,setUserNum] = useState<number | null>(null)//то что выбрал пользователь
+  const [userNum,setUserNum] = useState<number[]>([])//то что выбрал пользователь
 
   const onHandleBtn = ():void =>{
     setHandleBtn(!handleBtn)
@@ -32,7 +32,7 @@ const Roulette = () => {
     setIsBtn(false)
     setHandleBtn(true)
   }
-  const userCheck = (num:number)=>{
+  const userCheck = (num:number[])=>{
     setIsYes(true)
     setIsNo(true)
     setUserNum(num)
@@ -58,6 +58,13 @@ const Roulette = () => {
 
   setTimeout(()=>{
     setIsBtn(true) // отображаю кнопку для выблра ячеек
+
+    if(userNum.includes(currentCell)){
+      alert('Ура, вы выйграли!')
+    }
+    else{
+      alert('Увы, но вы проиграли ;(')
+    }
   },10000)
 
   setTimeout(() => {
@@ -107,10 +114,6 @@ const Roulette = () => {
 
       {handleBtn && <Srcoll returnNum={userCheck}/>}
 
-      {currentCell !== null 
-      && <p className={styles.numCell}>Рулетка остановилась на ячейке {currentCell}</p>}
-      {userNum !== null 
-      && <p className={styles.numCell}>Пользователь выбрал {userNum}</p>}
     </div>
   );
 };
