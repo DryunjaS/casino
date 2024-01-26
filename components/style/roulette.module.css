@@ -1,0 +1,132 @@
+.roulette {
+  background-color: rgb(1, 69, 2);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+}
+.roulette .wheel img {
+  transition: transform 10s cubic-bezier(0.3, 1, 0.7, 1), 10s filter cubic-bezier(0.1, 1, 0.8, 1), 10s -webkit-filter cubic-bezier(0.1, 1, 0.8, 1);
+  will-change: transform;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 100px rgba(0, 0, 0, 0.5);
+  width: 100%;
+  max-width: 600px;
+}
+.roulette .arrow {
+  width: 0;
+  height: 0;
+  border: 40px solid transparent;
+  border-top: 70px solid tomato;
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translate(-50%, -70px);
+          transform: translate(-50%, -70px);
+  z-index: 20;
+  border-radius: 0.35em;
+}
+
+.spin {
+  cursor: crosshair;
+}
+
+.ifGameUser {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.btn, .dozen {
+  font-size: 20px;
+  color: white;
+  margin-top: 20px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: tomato;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.btn:hover, .dozen:hover {
+  scale: 1.05;
+}
+
+.yesBtn {
+  font-size: 20px;
+  color: white;
+  margin-top: 10px;
+  margin-right: 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: green;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.yesBtn:hover {
+  scale: 1.05;
+}
+
+.noBtn {
+  font-size: 20px;
+  color: white;
+  margin-top: 10px;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: red;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.noBtn:hover {
+  scale: 1.05;
+}
+
+.wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.parlay {
+  position: absolute;
+  bottom: 110px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.parlay .parlayText {
+  margin-right: 10px;
+  font-size: 25px;
+  color: #fff;
+}
+.parlay .parlayInput {
+  width: 150px;
+  height: 50px;
+  border-radius: 10px;
+  font-size: 20px;
+  padding-left: 5px;
+}

@@ -4,6 +4,9 @@ import { useEffect, useRef, useState } from 'react';
 import styles from '@/components/Roulette/roulette.module.scss';
 import Srcoll from '../UI/Scroll/Srcoll';
 
+import store from '../../store/store';
+import { observer } from 'mobx-react';
+
 const Roulette = () => {
   const wheelImgRef = useRef<HTMLImageElement | null>(null);
   const [currentLength, setCurrentLength] = useState<number>(((1 / 37) * 360) / 2);
@@ -14,6 +17,7 @@ const Roulette = () => {
   const [isYes, setIsYes] = useState<boolean>(false)
   const [isNo, setIsNo] = useState<boolean>(false)
   const [userNum,setUserNum] = useState<number[]>([])//то что выбрал пользователь
+  const [stake,setStake] = useState<number>(0)//ставка пользователя
 
   const onHandleBtn = ():void =>{
     setHandleBtn(!handleBtn)
@@ -43,6 +47,7 @@ const Roulette = () => {
     const normalizedDegrees = (degrees % 360 + 360) % 360; // Нормализация отрицательных значений
     const cellDegrees = 360 / order.length;
     const cellNumber = Math.floor(normalizedDegrees / cellDegrees);
+
     return order[cellNumber-1];
   };
   const cellDegrees = 360 / 37;
@@ -60,18 +65,40 @@ const Roulette = () => {
     setIsBtn(true) // отображаю кнопку для выблра ячеек
 
     if(userNum.includes(currentCell)){
-      alert('Ура, вы выйграли!')
+      switch (userNum.length) {
+        case 1:
+          store.StraightUp(stake)
+          break;
+        case 2:
+          store.Split(stake)
+          break;
+        case 3:
+          store.Street(stake)
+          break;
+        case 4:
+          store.Corner(stake)
+          break;
+        case 12:
+          store.Dozen(stake)
+          break;
+        case 18:
+          store.EVENHANCES(stake)
+          break;
+        case 19:
+          store.EVENHANCES(stake)
+          break;
+        default:
+          alert( "Нет таких значений" );
+      }
     }
     else{
-      alert('Увы, но вы проиграли ;(')
+      store.loss(stake)
     }
   },10000)
 
   setTimeout(() => {
     setcurrentBlur(0);
     const totalDegrees = currentLength + spinInterval;
-
-    // Определить номер ячейки с учетом порядка
     const cellNumber = getCellNumber(totalDegrees);
     setCurrentCell(cellNumber);
   }, spinInterval);
@@ -114,8 +141,16 @@ const Roulette = () => {
 
       {handleBtn && <Srcoll returnNum={userCheck}/>}
 
+      <div className={styles.parlay}>
+        <div className={styles.parlayText}>Ставка</div>
+        <input 
+          type="number" 
+          className={styles.parlayInput}
+          value={stake}
+          onChange={(e)=>setStake(parseInt(e.target.value))}/>
+      </div>
     </div>
   );
 };
 
-export default Roulette;
+export default observer(Roulette);

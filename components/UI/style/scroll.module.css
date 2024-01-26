@@ -1,0 +1,79 @@
+.wrap {
+  margin-top: 10px;
+  width: 500px;
+  position: absolute;
+  top: 100px;
+  left: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.wrap .scrollport {
+  width: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-right: 10px;
+}
+.wrap .scrollportDop {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.wrap .block, .wrap .dozen {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 45px;
+  height: 45px;
+  font-size: 23px;
+  margin: 4px;
+  padding: 10px;
+  background-color: tomato;
+  border-radius: 7px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.wrap .block:hover, .wrap .dozen:hover {
+  scale: 1.1;
+  cursor: pointer;
+  background-color: red;
+}
+.wrap .block:first-child {
+  width: 200px;
+}
+.wrap .dozen {
+  width: 150px;
+  margin-right: 10px;
+}
+.wrap .rhombRed, .wrap .rhombBlack {
+  width: 25px;
+  height: 25px;
+  background-color: #ff0000;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin: 10px;
+  border: 1px solid black;
+}
+.wrap .rhombBlack {
+  background-color: #000;
+}
