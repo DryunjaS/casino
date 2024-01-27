@@ -1,5 +1,6 @@
 import Footer from '@/components/Footer/Footer'
 import { Header } from '@/components/Header/Header'
+import Providers from '@/components/UI/Providers/Providers'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
+        <Providers>
+          {children}
+        </Providers>
       </body>
     </html>
   )

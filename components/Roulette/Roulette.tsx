@@ -81,6 +81,9 @@ const Roulette = () => {
         case 12:
           store.Dozen(stake)
           break;
+        case 17:
+          store.EVENHANCES(stake)
+          break;
         case 18:
           store.EVENHANCES(stake)
           break;
@@ -140,15 +143,26 @@ const Roulette = () => {
       </div>
 
       {handleBtn && <Srcoll returnNum={userCheck}/>}
-
-      <div className={styles.parlay}>
-        <div className={styles.parlayText}>Ставка</div>
-        <input 
-          type="number" 
-          className={styles.parlayInput}
-          value={stake}
-          onChange={(e)=>setStake(parseInt(e.target.value))}/>
-      </div>
+      {
+        handleBtn && (
+        <div className={styles.parlay}>
+          <div className={styles.parlayText}>Ставка</div>
+          <input 
+            type="number" 
+            className={styles.parlayInput}
+            value={stake}
+            onChange={(e)=>setStake(parseInt(e.target.value))}/>
+        </div>
+        )
+      }
+      {
+        !handleBtn && (
+          <div className={styles.comment}>
+             {userNum.length === 1 ? <p>Ставка {stake}$ на ячейку: {userNum}</p> 
+              : <p>Ставка {stake}$ на ячейки: {userNum.map(el=><span>{el}; </span>)}</p> }
+          </div>
+        )
+      }
     </div>
   );
 };

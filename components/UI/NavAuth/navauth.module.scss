@@ -26,42 +26,31 @@
         font-size: 20px;
         margin: 10px;
     }
-    .logo{
-        position: absolute;
-        top: 10px;
-        left: -20px;
-        transition: all 0.3s ease;
-        z-index: 10;
-        &:hover{
-            scale: 1.05;
-        }
+    .wrapBtnReg{
+      width: 40%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     .reg {
-        padding: 10px 20px;
+        padding: 10px 30px;
         border-radius: 10px;
         background: linear-gradient(to right, red, #a30202);
         color: #fff; 
         transition: all 0.2s ease-in;
         &:hover {
             background: linear-gradient(to right, #a30202, #730101);
-            transform: scale(1.03);
+            transform: scale(1.1);
         }
     }
-    
-    .log{
-        padding: 10px 20px;
-        border-radius: 10px;
-        background: linear-gradient(to right, blue, rgb(26, 2, 159));
-        transition: all 0.2s ease-in;
-        &:hover {
-            background: linear-gradient(to right, rgb(2, 2, 188), rgb(23, 2, 142));
-            transform: scale(1.03);
-        }
-    }
+  
     .line {
         position: relative;
         z-index: 10;
         color: #fff;
+        .linkImg{
+          cursor: pointer;
+        }
     }
     
     .line::after {
@@ -97,7 +86,7 @@
     width: max-content;
     padding: 10px 15px;
     .imgBalans{
-        margin-right: 20px;
+        margin-right: 10px;
     }
 }
 .user{
@@ -114,6 +103,19 @@
     &:hover{
         border: 2px solid blue;
     }
+    .imgUser{
+      border-radius: 50%;
+    }
+}
+.balans{
+  position: relative;
+  left: 0;
+  margin-right: 20px;
+}
+.imgOut{
+  position: absolute;
+  right: -60px;
+  cursor: pointer;
 }
 
 #text {
@@ -125,11 +127,6 @@
     border-radius:20px;
     animation: border-flicker 2s linear infinite;
 
-    position: absolute;
-        top: 10px;
-        left: -20px;
-        transition: all 0.3s ease;
-        z-index: 10;
   }
   
   .h1 {

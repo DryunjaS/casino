@@ -7,24 +7,21 @@ import styles from '@/components/UI/NavAuth/navauth.module.scss'
 const NavAuthFalse = () => {
   return (    
     <div className={styles.nav}>
-       <Link href="/">
+            <Link href="/">
                 <div id={styles.text}>
                     <h1 className={styles.h1}>CA<span id="offset">SI</span>NO</h1>
                 </div>
             </Link>
+            <div className={styles.wrapBtnReg}>
             <Link 
                 href="/auth/reg"
                 className={styles.reg} >
-                Регистрация
-            </Link>
-            <Link 
-                href="/auth/login"
-                className={styles.log}>
-                Вход
+                SignIn
             </Link>
             <div className={styles.line}>или</div>
-            <Link href="/">
+            <Link href="/api/auth/signin">
                 <Image
+                    className={styles.linkImg}
                     src="/google.png"
                     width={40}
                     height={40}
@@ -38,7 +35,8 @@ const NavAuthFalse = () => {
                     height={40}
                     alt="VK"
                 />
-            </Link>     
+            </Link> 
+            </div>    
     </div>
             
   )

@@ -128,5 +128,12 @@
   height: 50px;
   border-radius: 10px;
   font-size: 20px;
-  padding-left: 5px;
+  padding-left: 10px;
+}
+
+.comment {
+  position: absolute;
+  bottom: 120px;
+  font-size: 25px;
+  color: #fff;
 }

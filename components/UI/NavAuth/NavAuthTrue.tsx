@@ -5,8 +5,22 @@ import Image from 'next/image'
 import styles from '@/components/UI/NavAuth/navauth.module.scss'
 import store from '../../../store/store'
 import { observer } from "mobx-react"
+import { useSession, signOut } from "next-auth/react"
+import { useEffect, useState } from "react"
 
 const NavAuthTrue = () => {
+    const session = useSession()
+    const [name,setName] = useState<string | null | undefined>(null)
+    const [imgs,setImg] = useState<string | null | undefined>(null)
+    useEffect(()=>{
+        if(session.status === 'authenticated'){
+          setName(session.data.user?.name)
+          setImg(session.data.user?.image)
+        }else{
+          setName(null)
+          setImg(null)
+        }
+      },[session])
   return (    
     <div className={styles.nav}>
        <Link href="/">
@@ -23,18 +37,26 @@ const NavAuthTrue = () => {
                 alt="money"
                 className={styles.imgBalans}
             />
-            <div>{store.balans}</div>
+            <div className={styles.balans}>{store.balans}</div>
         </div>
-        <Link href="#" className={styles.user}>
-            <div className={styles.userText}>Андрей</div>
+        <Link href="/profile" className={styles.user}>
+            <div className={styles.userText}>{name}</div>
             <Image
-                src="/imgUser.png"
-                width={50}
-                height={50}
+                src={imgs ?? "/imgUser.png"}
+                width={55}
+                height={55}
                 alt="imgUser"
                 className={styles.imgUser}
             />
-        </Link>    
+        </Link>
+        <Image
+            src="/imgOut.png"
+            width={55}
+            height={55}
+            alt="imgOut"
+            onClick={()=>signOut({callbackUrl:'/'})}
+            className={styles.imgOut}
+        />    
     </div>
             
   )
