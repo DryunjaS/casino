@@ -9,7 +9,9 @@ export default function Home() {
         <div className="main">
           <div className="main__wrapp">
             <Maney/>
-            <Card/>
+            <div className="game_item">
+              <Card/>
+            </div>
           </div>
         </div>
       </Wrapper>

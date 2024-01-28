@@ -7,14 +7,13 @@ const Card = () => {
     <Link href="/game/roulette">
       <div className={styles.wrap}>
           <Image
-              src="/jackpot.png"
-              width={100}
-              height={150}
+              className={styles.img}
+              src="/roulette-wheel.png"
+              width={200}
+              height={200}
               alt="Google"
           />
-          <button className={styles.btn}>
-            Играть
-          </button>
+          <div className={styles.btn}>Играть</div>
       </div>
     </Link>
   )

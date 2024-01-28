@@ -12,31 +12,11 @@ const NavAuthFalse = () => {
                     <h1 className={styles.h1}>CA<span id="offset">SI</span>NO</h1>
                 </div>
             </Link>
-            <div className={styles.wrapBtnReg}>
             <Link 
-                href="/auth/reg"
+                href="/api/auth/signin"
                 className={styles.reg} >
-                SignIn
+                Войдите или зарегистрируйтесь
             </Link>
-            <div className={styles.line}>или</div>
-            <Link href="/api/auth/signin">
-                <Image
-                    className={styles.linkImg}
-                    src="/google.png"
-                    width={40}
-                    height={40}
-                    alt="Google"
-                />
-            </Link>
-            <Link href="/">
-                <Image
-                    src="/vk.png"
-                    width={40}
-                    height={40}
-                    alt="VK"
-                />
-            </Link> 
-            </div>    
     </div>
             
   )

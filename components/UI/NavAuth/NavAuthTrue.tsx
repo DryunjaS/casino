@@ -10,6 +10,7 @@ import { useEffect, useState } from "react"
 
 const NavAuthTrue = () => {
     const session = useSession()
+    console.log('session',session)
     const [name,setName] = useState<string | null | undefined>(null)
     const [imgs,setImg] = useState<string | null | undefined>(null)
     useEffect(()=>{

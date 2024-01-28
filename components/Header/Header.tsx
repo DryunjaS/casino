@@ -5,20 +5,22 @@ import { useEffect, useState } from "react"
 import NavAuthFalse from "../UI/NavAuth/NavAuthFalse"
 import NavAuthTrue from '../UI/NavAuth/NavAuthTrue'
 import { useSession } from 'next-auth/react'
-export const Header = () => {
-    const [isAuth,setIsAuth] = useState<boolean>(false)
+import store from '../../store/store';
+import { observer } from 'mobx-react';
+
+export const Header = observer(() => {
 
     const session = useSession()
     useEffect(()=>{
       if(session.status === 'authenticated'){
-        setIsAuth(true)
+        store.isAuth = true
       }else{
-        setIsAuth(false)
+        store.isAuth = false
       }
     },[session])
   return (
     <div className={styles.header}>
-        { isAuth ? <NavAuthTrue /> : <NavAuthFalse/> }
+        { store.isAuth ? <NavAuthTrue /> : <NavAuthFalse/> }
     </div>
   )
-}
+})

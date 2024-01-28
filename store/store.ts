@@ -2,6 +2,7 @@ import { observable } from 'mobx';
 
 const store = observable({
     balans: 0,
+    isAuth:false,
 
    StraightUp(stake:number) {
     this.balans = stake*35+stake;

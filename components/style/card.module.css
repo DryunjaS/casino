@@ -1,5 +1,5 @@
 .wrap {
-  width: 100px;
+  width: 200px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -7,27 +7,31 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-.wrap .btn {
-  padding: 10px 20px;
-  border-radius: 10px;
-  background: -webkit-gradient(linear, left top, right top, from(red), to(#a30202));
-  background: linear-gradient(to right, red, #a30202);
-  color: #fff;
+  border-radius: 16px;
+  background-color: darkcyan;
   -webkit-transition: all 0.2s ease-in;
   transition: all 0.2s ease-in;
 }
-.wrap .btn:hover {
+.wrap:hover {
   cursor: pointer;
-  background: -webkit-gradient(linear, left top, right top, from(#a30202), to(#730101));
-  background: linear-gradient(to right, #a30202, #730101);
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   -webkit-transform: scale(1.03);
           transform: scale(1.03);
 }
-.wrap:hover {
-  border-radius: 5px;
-  background: -webkit-gradient(linear, left top, right top, from(#a30202), to(#730101));
-  background: linear-gradient(to right, #a30202, #730101);
-  -webkit-transform: scale(1.01);
-          transform: scale(1.01);
+.wrap .btn {
+  padding: 10px 20px;
+  border: 1px solid black;
+  border-radius: 0 0 10px 10px;
+  background: -webkit-gradient(linear, left top, right top, from(red), to(#a30202));
+  background: linear-gradient(to right, red, #a30202);
+  color: #fff;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  -webkit-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+}
+.wrap .btn:focus {
+  outline: none;
 }
